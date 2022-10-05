@@ -30,7 +30,7 @@
             <h2>블로그 소개입니다.</h2>
             <div class="banner__inner container">
                 <div class="img">
-                    <img src="../html/assets/IMG/banner_bg01.jpg" alt="배너 이미지">
+                    <img src="../html/assets/img/banner_bg01.jpg" alt="배너 이미지">
                 </div>
                 <div class="desc">
                     어떤 일이라도 <em>노력</em>하고 즐기면  그 결과는 빛을 바란다고 생각합니다.
