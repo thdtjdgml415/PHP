@@ -35,10 +35,20 @@
                 <div class="board__inner">
                 <div class="board_search">
                     <div class="left">
-                        *총 <em>1111</em>건의 게시물이 등록되어 있습니다.
+                        <?php
+                        function msg($count) {
+                            echo "<p>총 게시물이 ".$count."건 등록되어 있습니다.</p>";
+                        };
+
+                        $viewSql = "SELECT b.myBoardID FROM myBoard b";
+                        $result = $connect -> query($viewSql);
+                        $total = $result -> num_rows;
+                        ?>
+                        *총 <em><?=$total?></em>건의 게시물이 등록되어 있습니다.
+                        <!-- 총 게시물이 등록되어 있습니다.  -->
                     </div>
                     <div class="right">
-                        <form action="board_search.php" method="get " name="board_search">
+                        <form action="boardSearch.php" name="board_search" method="get">
                             <fieldset>
                                 <legend>게시판 검색 영역</legend>
                                 <input type="search" name="searchKeyword" id="searchKeyword" placeholder="검색어를 입력하세요"
@@ -96,7 +106,8 @@
 
                             if($result) {
                                 $count = $result -> num_rows;
-
+                               
+                                
                                 if($count > 0) {
                                     for($i=1; $i <= $count; $i++) {
                                         $info = $result -> fetch_array(MYSQLI_ASSOC); //데이터 배열로 가져옴
@@ -108,6 +119,8 @@
                                         echo "<td>".$info['boardView']."</td>";
                                         echo "</tr>";
                                     }
+                                } else {
+                                    echo "<tr><td colspan='5'>게시글이 없습니다.</td></tr>";
                                 }
                             }
                             ?>
@@ -230,7 +243,6 @@
         echo "<li><a href='board.php?page={$NextPage}'>다음</a></li>";
         echo "<li><a href='board.php?page={$boardCount}'>마지막으로</a></li>";
     }
-
 ?>    
                             
                         <!-- <li><a href="#">처음으로</a></li>

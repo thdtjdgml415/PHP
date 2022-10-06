@@ -1,5 +1,5 @@
         <!-- 로그인 가입 팝업 -->
-        <div class="login__popup">
+    <div class="login__popup">
         <div class="login__inner">
             <div class="login__header">
                 <h3>로그인</h3>

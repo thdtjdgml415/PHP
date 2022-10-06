@@ -49,8 +49,8 @@
     $result = $connect -> query($sql);
     
     //볼때 마다 조회수 + 1 (update 사용)
-    $reviewsql = "UPDATE myBoard SET boardView = boardView + 1 WHERE myBoardID={$myBoardID}";
-    $result = $connect -> query($reviewsql);
+    $sql = "UPDATE myBoard SET boardView = boardView + 1 WHERE myBoardID={$myBoardID}";
+    $connect -> query($sql);
 
 
     if($result) {
